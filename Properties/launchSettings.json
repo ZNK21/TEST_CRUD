@@ -1,0 +1,24 @@
+﻿{
+    "profiles": {
+        "Console": {
+            "commandName": "Project", //Nombre del perfil de lanzamiento
+            "launchBrowser": true, //Si es que se lanza en navegador
+            "environmentVariables": { //Por defecto para el uso de AspCore
+                "ASPNETCORE_ENVIRONMENT": "Development", //Lanzado en ambiente de desarrollo
+                "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" //Estructura de MVC
+            },
+            "applicationUrl": "https://localhost:9001;http://localhost:9000" //En que direccion y puerto se lanzará
+        },
+        "Docker": {
+            "commandName": "Docker",
+            "launchBrowser": true,
+            "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+            "publishAllPorts": true,
+            "useSSL": true,
+            "sslPort": 9001,
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        }
+    }
+}

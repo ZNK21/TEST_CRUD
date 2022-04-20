@@ -1,0 +1,40 @@
+﻿[
+    {
+        "outputFileName": "wwwroot/bundles/layout.css",
+        "inputFiles": [
+            "wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+            "wwwroot/css/site.css"
+        ],
+        "minify": {
+            "enabled": true,
+            "renameLocal": true,
+            "preserveImportantComments": false
+        }
+    },
+    {
+        "outputFileName": "wwwroot/bundles/games.css",
+        "inputFiles": [
+            "wwwroot/css/games.css"
+        ],
+        "minify": {
+            "enabled": true,
+            "renameLocal": true,
+            "preserveImportantComments": false
+        }
+    },
+    {
+        "outputFileName": "wwwroot/bundles/layout.js",
+        "inputFiles": [
+            "wwwroot/lib/jquery/dist/jquery.js",
+            "wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+            "wwwroot/lib/momentjs/moment.js",
+            "wwwroot/lib/momentjs/es.js"
+        ],
+        "minify": {
+            "enabled": true,
+            "renameLocals": true,
+            "preserveImportantComments": false
+        }
+    }
+    
+]

@@ -1,0 +1,86 @@
+﻿@model TEST_CRUD.Entities.Games
+
+<script>
+    $(function () {
+        $("#priceedit").val(parseFloat("@Model.price"))
+
+        $("#guardaredit").click(function () {
+
+            var nameEdit = $("#nameedit").val(),
+                dateEdit = $("#dateedit").val(),
+                genreEdit = $("#genreedit").val(),
+                priceEdit = $("#priceedit").val()
+
+            var game = {
+                gameId: parseInt('@Model.gameId'),
+                gameName: nameEdit,
+                launchDate: dateEdit,
+                genre: genreEdit,
+                price: parseFloat(priceEdit)
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/Games/EditarJuego",
+                data: game,
+                success: function (result) {
+                    if (result.status) {
+
+                        alert("Juego actualizado correctamente.");
+
+                        setTimeout(() => {
+                            location.href = "/Games/"
+                        }, 1500)
+
+                    }
+
+
+                },
+                error: function () {
+
+                }
+            })
+
+
+
+        })
+
+    })
+
+
+
+
+</script>
+
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            Editar Videojuego
+        </div>
+        <div class="modal-body">
+            <form asp-action="Editar" asp-controller="Games" method="POST">
+                <div class="form-row col-12">
+                    <label for="name" class="control-label">Nombre juego</label>
+                    <input id="nameedit" type="text" name="name" class="form-control" value="@Model.gameName" />
+                </div>
+                <div class="form-row col-12">
+                    <label for="date" class="control-label">Fecha de lanzamiento</label>
+                    <input id="dateedit" type="datetime" name="date" class="form-control" value="@Model.launchDate" />
+                </div>
+                <div class="form-row col-12">
+                    <label for="genre" class="control-label">Género</label>
+                    <input id="genreedit" type="text" name="genre" class="form-control" value="@Model.genre" />
+                </div>
+                <div class="form-row col-12">
+                    <label for="price" class="control-label">Precio</label>
+                    <input id="priceedit" type="number" min="0" max="100000" name="price" class="form-control precio" />
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button id="guardaredit" type="button" class="btn btn-success guardar" data-target="#newModal">Guardar</button>
+            <button id="cancelaredit" type="button" class="btn btn-danger cancelar" data-target="#newModal">Cancelar</button>
+        </div>
+    </div>
+</div>

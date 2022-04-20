@@ -1,0 +1,42 @@
+﻿@model DropdownModels
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            Crear nuevo Videojuego
+        </div>
+        <div class="modal-body">
+            <form asp-action="Nuevo" asp-controller="Games" method="POST">
+                <div class="form-row col-12">
+                    <label for="name" class="control-label">Nombre juego</label>
+                    <input placeholder="Ej: The Witcher 3" id="name" type="text" name="name" class="form-control new" />
+                </div>
+                <div class="form-row col-12">
+                    <label for="date" class="control-label">Fecha de lanzamiento</label>
+                    <input id="date" type="date" name="date" class="form-control new" />
+                </div>
+                <div class="form-row col-12">
+                    <label for="genre" class="control-label">Género</label>
+                    <select name="genre" id="dropdown">
+                    </select>
+                    @*<input placeholder="Ej: Acción" id="genre" type="text" name="genre" class="form-control new" />*@
+                </div>
+                <div class="form-row col-12">
+                    <label for="price" class="control-label">Precio</label>
+                    <input placeholder="Ej:35200" id="price" type="number" min="0" max="100000" name="price" class="form-control precio " />
+                </div>
+                <div class="form-row col-12">
+                    <label for="platform" class="control-label">Plataforma</label>
+                    <select name="platform" id="dropdown2">
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button id="guardar" type="button" class="btn btn-success guardar" data-target="#newModal">Guardar</button>
+            <button id="cancelar" type="button" class="btn btn-danger cancelar" data-target="#newModal">Cancelar</button>
+        </div>
+    </div>
+</div>
+</div>
+
+</div>
